@@ -1,4 +1,5 @@
-![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=Hello%World!)
+![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=Hello%World!type=rounded&color=gradient&text=%20asdf%20&height=300&fontSize=100&textBg=true)
+)
 
 <h2>My tech stack</h2>
 <img src="https://img.shields.io/badge/-html5-E34F26?style=for-the-badge&logo=html5&logoColor=black">
