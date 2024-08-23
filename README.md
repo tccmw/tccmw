@@ -5,3 +5,4 @@
 <img src="https://img.shields.io/badge/-react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=js&layout=compact&theme=dracula)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=js&show_icons=true&theme=dracula)
