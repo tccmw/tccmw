@@ -10,5 +10,4 @@
 <br>
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=js&show_icons=true&theme=dracula)
-<br>
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=js&layout=compact&theme=dracula)
