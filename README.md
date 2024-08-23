@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=Hello% I'm% 정명우)
+![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=Hello%I'm%정명우)
 )
 <div align=center>
 <h2>My tech stack</h2>
