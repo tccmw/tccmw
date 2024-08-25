@@ -16,4 +16,4 @@
 <br>
 
 ![tccmw's GitHub stats](https://github-readme-stats.vercel.app/api?username=tccmw&show_icons=true&theme=radical)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=html&layout=compact&theme=dracula)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tccmw&layout=compact&theme=dracula)
