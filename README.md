@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=Hello,%world!)
+![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=이나경사랑해!)
 
 <div align=center>
 <h2>⭐Me⭐</h2>
