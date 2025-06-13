@@ -1,22 +1,64 @@
-![header](https://capsule-render.vercel.app/api?type=venom&color=random&text=Hello,World!)
+<div align="center">
+  <img src="https://github.com/oka1313/oka1313/assets/101691440/92118a53-c5b6-40bc-b130-bf8c398d7b51" />
+</div>
 
 <div align=center>
 <h2>⭐Me⭐</h2>
   <h3>저는 프론트엔드 개발자를 목표로 공부하고 있는 정명우입니다</h3>
   <h3>항상 호기심을 가지고 개발을 하며 실패를 두려워하지 않는 개발자가 되기 위해 노력합니다.</h3>
-  <a href="https://www.instagram.com/tcc_mw/"><img src="https://img.shields.io/badge/Instagram-ff69b4?style=plastic&logo=Instagram&logoColor=black"/></a> 
-   <img src="https://img.shields.io/badge/jungmwoo6248@gmail.com-EA4305?style=flat-square&logo=Gmail&logoColor=black">  
-<h2>📖My tech stack📖</h2>
-<img src="https://img.shields.io/badge/-javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
-<img src="https://img.shields.io/badge/-react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
-<img src="https://img.shields.io/badge/-typescript-3178C6?style=for-the-badge&logo=react&logoColor=black">
-<img src="https://img.shields.io/badge/-rn-61DAFB?style=for-the-badge&logo=react&logoColor=black">
-<img src="https://img.shields.io/badge/-nextdotjs-000000?style=for-the-badge&logo=nextdotjs&logoColor=black">
-<img src="https://img.shields.io/badge/-gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=black">
-<img src="https://img.shields.io/badge/-reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=black">
-<img src="https://img.shields.io/badge/-jamstack-F0047F?style=for-the-badge&logo=jamstack&logoColor=black">
-<img src="https://img.shields.io/badge/-vite-F16728?style=for-the-badge&logo=vite&logoColor=black">
 </div>
+
+<br>
+
+<h2 align="center">✨ Tech Stack ✨</h2>
+<div align=center>
+<div>
+  <img src="https://img.shields.io/badge/html5-E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/javascript-F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=20232a" />&nbsp
+  <img src="https://img.shields.io/badge/react-20232a.svg?style=for-the-badge&logo=react&logoColor=61DAFB" />&nbsp
+</div>
+
+<div>
+  <img src="https://img.shields.io/badge/-typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">&nbsp
+  <img src="https://img.shields.io/badge/react native-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black" />&nbsp
+  <img src="https://img.shields.io/badge/-nextdotjs-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">&nbsp
+</div>
+<div>
+  <img src="https://img.shields.io/badge/-gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=black">
+  <img src="https://img.shields.io/badge/-reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white">
+  <img src="https://img.shields.io/badge/-tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+</div>
+</div>
+
+<br>
+
+<h2 align="center">🛠 Tools 🛠</h2>
+<div align="center">
+  <img src="https://img.shields.io/badge/git-F05033.svg?style=for-the-badge&logo=git&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/Notion-F3F3F3.svg?style=for-the-badge&logo=notion&logoColor=black" />&nbsp
+</div>
+
+<div align="center">
+  <img src="https://img.shields.io/badge/VSCode-2C2C32.svg?style=for-the-badge&logo=visual-studio-code&logoColor=22ABF3" />&nbsp
+  <img src="https://img.shields.io/badge/jupyter-2C2C32.svg?style=for-the-badge&logo=jupyter&logoColor=F37726" />&nbsp
+<!--   <img src="https://img.shields.io/badge/Colab-2C2C32.svg?style=for-the-badge&logo=googlecolab&logoColor=F9AB00" />&nbsp -->
+</div>
+
+<br>
+
+<h2 align="center">📫 Contact 📫</h2>
+<div align="center">
+  <a href="https://www.instagram.com/tcc_mw">
+    <img
+      src="https://img.shields.io/badge/Instagram-ff69b4?style=plastic&logo=Instagram&logoColor=white"/>&nbsp
+  </a> 
+  <a href="mailto:jungmwoo6248@gmail.com">
+    <img
+      src="https://img.shields.io/badge/jungmwoo6248@gmail.com-EA4305?style=flat-square&logo=Gmail&logoColor=white">&nbsp
+  </a>
+</div>
+
 <br>
 
 ![tccmw's GitHub stats](https://github-readme-stats.vercel.app/api?username=tccmw&show_icons=true&theme=radical)
