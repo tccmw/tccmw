@@ -1,7 +1,3 @@
-<p align='center'>
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Hello%20World&fontSize=90&animation=fadeIn&fontAlignY=38&desc=%20Welcome%20to%20Jeong%20Myeongwoo's%20GitHub!&descAlignY=51&descAlign=62"/>
-</p>
-
 <div align=center>
 <h2>⭐Me⭐</h2>
   <h3>저는 프론트엔드 개발자를 목표로 공부하고 있는 정명우입니다</h3>
