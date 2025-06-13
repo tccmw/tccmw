@@ -51,8 +51,3 @@
       src="https://img.shields.io/badge/jungmwoo6248@gmail.com-EA4305?style=flat-square&logo=Gmail&logoColor=white">
   </a>
 </div>
-
-<br>
-
-![tccmw's GitHub stats](https://github-readme-stats.vercel.app/api?username=tccmw&show_icons=true&theme=radical)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tccmw&layout=compact&theme=dracula)
