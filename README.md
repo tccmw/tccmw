@@ -1,6 +1,6 @@
-<div align="center">
-  <img src="https://github.com/oka1313/oka1313/assets/101691440/92118a53-c5b6-40bc-b130-bf8c398d7b51" />
-</div>
+<p align='center'>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=Hello%20World&fontSize=90&animation=fadeIn&fontAlignY=38&desc=%20Welcome%20to%20Jeong%20Myeongwoo's%20GitHub!&descAlignY=51&descAlign=62"/>
+</p>
 
 <div align=center>
 <h2>⭐Me⭐</h2>
@@ -23,6 +23,7 @@
   <img src="https://img.shields.io/badge/react native-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black" />&nbsp
   <img src="https://img.shields.io/badge/-nextdotjs-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">&nbsp
 </div>
+
 <div>
   <img src="https://img.shields.io/badge/-gatsby-663399?style=for-the-badge&logo=gatsby&logoColor=black">
   <img src="https://img.shields.io/badge/-reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white">
@@ -34,15 +35,10 @@
 
 <h2 align="center">🛠 Tools 🛠</h2>
 <div align="center">
-  <img src="https://img.shields.io/badge/git-F05033.svg?style=for-the-badge&logo=git&logoColor=white" />&nbsp
+  <img src="https://img.shields.io/badge/gitkraken-179287.svg?style=for-the-badge&logo=gitkraken&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" />&nbsp
   <img src="https://img.shields.io/badge/Notion-F3F3F3.svg?style=for-the-badge&logo=notion&logoColor=black" />&nbsp
-</div>
-
-<div align="center">
   <img src="https://img.shields.io/badge/VSCode-2C2C32.svg?style=for-the-badge&logo=visual-studio-code&logoColor=22ABF3" />&nbsp
-  <img src="https://img.shields.io/badge/jupyter-2C2C32.svg?style=for-the-badge&logo=jupyter&logoColor=F37726" />&nbsp
-<!--   <img src="https://img.shields.io/badge/Colab-2C2C32.svg?style=for-the-badge&logo=googlecolab&logoColor=F9AB00" />&nbsp -->
 </div>
 
 <br>
@@ -51,11 +47,12 @@
 <div align="center">
   <a href="https://www.instagram.com/tcc_mw">
     <img
-      src="https://img.shields.io/badge/Instagram-ff69b4?style=plastic&logo=Instagram&logoColor=white"/>&nbsp
-  </a> 
+      src="https://img.shields.io/badge/Instagram-ff69b4?style=plastic&logo=Instagram&logoColor=white"/>
+  </a>
+  
   <a href="mailto:jungmwoo6248@gmail.com">
     <img
-      src="https://img.shields.io/badge/jungmwoo6248@gmail.com-EA4305?style=flat-square&logo=Gmail&logoColor=white">&nbsp
+      src="https://img.shields.io/badge/jungmwoo6248@gmail.com-EA4305?style=flat-square&logo=Gmail&logoColor=white">
   </a>
 </div>
 
