@@ -1,6 +1,6 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff0000,100:0335fc&height=180&text=Hello%20World!&animation=fadeIn&fontColor=000000&fontSize=60" />
-    </div>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=180&text=Hello%20World!&animation=fadeIn&fontColor=000000&fontSize=60" />
+</div>
     <div align= "center"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> <div align=center>⭐About Me⭐</div> </h2>  
     <div style="font-weight: 700; font-size: 15px; text-align: center; color: #282d33;"> <div align=center></li>저는 프론트엔드 개발자를 목표로 공부하고 있는 정명우입니다.<br></li>항상 호기심을 가지고 개발을 하며 실패를 두려워하지 않는 개발자가 되기 위해 노력합니다.</li></div> </div> 
@@ -28,5 +28,9 @@
          <a href=mailto:jungmwoo6248@gmail.com> <img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:jungmwoo6248@gmail.com"> </a>
           </div>  <br> 
     <div align= "center">  </div> 
+        <div align= "center"> 
+    <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;"> 🏅 Stats </h2> <div align= "center"> <img src="https://github-readme-stats.vercel.app/api?username=tccmw&bg_color=180,00000000,&title_color=000000&text_color=000000"
+         /> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tccmw&layout=compact&bg_color=180,00000000,&title_color=000000&text_color=000000"
+           /> </div> 
     </div>
     
