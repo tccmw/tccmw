@@ -1,0 +1,93 @@
+## 🚫 **`void` 타입**
+
+**`void` 타입은 무엇인가요?**
+
+- **아무것도 없음**을 의미하는 타입
+- 주로 함수의 반환값에 사용
+
+**📌 특징**
+
+- 어떠한 값도 담을 수 없으며, **`undefined`만 담을 수 있음**
+- **반환값이 없는 함수**의 타입으로 적합
+
+**📝 예시 코드**
+
+```tsx
+function fun1(): void {
+  console.log('hello');
+}
+
+let a: void;
+
+a = 1;          // ❌ Error
+a = 'hello';    // ❌ Error
+a = {};         // ❌ Error
+a = undefined;  // ✅ Valid
+a = null;       // ❌ Error (엄격한 검사 옵션을 꺼야 가능)
+```
+
+**💡 추가 정보**
+
+- 반환값이 없지만 `return`문을 쓰고 싶지 않은 경우, `undefined` 대신 `void`를 사용
+- **굳이 사용할 필요가 없는 경우도 많음**, 상황에 맞게 선택 ㄱㄱ
+
+**undefined의 슈퍼타입**
+
+```jsx
+function voidExam(){
+	function voidFunc() : void{
+		console.log("hi")
+	}
+	
+	let voidVar: void = undefined
+}
+```
+
+---
+
+## ❌ **`never` 타입**
+
+**`never` 타입은 무엇인가요?**
+
+- *"절대로 발생하지 않을 값"**을 의미합니다.
+- 반환값이 존재하지 않거나, 정상적으로 종료되지 않는 함수의 타입으로 사용됩니다.
+
+**📌 특징**
+
+- 어떠한 값도 담을 수 없습니다.
+- 반환값이 있을 수 없는 함수에서 사용됩니다.
+
+**📝 예시 코드**
+
+```tsx
+function fun2(): never {
+  while (true) {} // 무한 루프 → 반환값 없음
+}
+
+function error(): never {
+  throw new Error('에러 발생'); // 항상 예외 발생 → 반환값 없음
+}
+```
+
+**💡 추가 정보**
+
+- 주로 **에러를 던지거나 무한 루프 같은 종료되지 않는 동작**에 사용됩니다.
+- **`void`와의 차이점**:
+    - `void`: 반환값이 없을 수도 있지만, 종료는 정상적으로 이루어짐.
+    - `never`: **절대로 반환값이 없으며, 종료되지 않음.**
+
+**ts의 존재하는 모든 타입의 서브타입**
+
+```jsx
+function neverExam(){
+	function neverFunc() : never{
+		while (true){}
+	}
+	
+	let num : number = neverFunc()
+	let str : string = neverFunc()
+	let bool: boolean = neverFunc()
+}
+```
+
+모든 타입의 **업케스팅으로 작용**한다 → 그 어떤 타입의 변수에도 값을 넣을 수 있다
