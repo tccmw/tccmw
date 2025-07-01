@@ -1,0 +1,72 @@
+# C++ 기초 문법 정리
+
+## 기본 문법
+
+### 헤더와 네임스페이스
+
+```cpp
+#include <iostream>
+using namespace std;
+```
+
+### 함수 원형 선언
+
+```cpp
+void printName(string name);
+```
+
+### main 함수
+
+```cpp
+int main() {
+    int i = 4;               // 정수형 변수
+    float f = 4.0;           // 실수형 변수
+    double d = 4.0;          // 실수형 변수
+    bool b = true;           // 불린형 변수
+    string greeting = "Hello"; // 문자열 변수
+    int* pi = &i;            // 포인터 변수
+
+    cout << greeting << " World!!";  // 출력
+    cin >> greeting;                 // 입력
+    return 0;
+}
+```
+
+---
+
+## 조건문
+
+### if 문
+
+```cpp
+if (x < y) {
+    cout << y;
+} else if (x == y) {
+    cout << "equal";
+} else {
+    cout << x;
+}
+```
+
+### 삼항 연산자
+
+```cpp
+cout << (x < y) ? "X" : "Y";
+```
+
+### switch 문
+
+```cpp
+switch (x) {
+    case 1:
+        cout << "X";
+        break;
+    case 2:
+        cout << "Y";
+        break;
+    default:
+        cout << "Z";
+}
+```
+
+---
