@@ -1,0 +1,150 @@
+## **표준 네임스페이스 및 입출력**
+
+### **기본 코드 예제**
+
+```cpp
+#include <iostream> // C언어의 <stdio.h> 격
+
+using namespace std; // 표준 네임스페이스를 사용하겠다는 의미
+
+int main(void) {
+    int num;
+    cout << "숫자 입력 :"; // cout는 C의 printf와 동일
+    cin >> num; // cin은 C의 scanf와 동일
+    cout << num << endl; // endl은 C의 개행문자 출력과 동일
+
+    return 0;
+}
+```
+
+### **표준 네임스페이스 (`using namespace std`)**
+
+- **네임드 스페이스**: 변수나 함수의 소속을 명확히 하기 위한 개념
+- `cout`, `cin`, `endl` 등은 모두 **`std` 네임스페이스에 속한 함수**
+- `using namespace std;`를 선언하지 않을 경우, **범위지정 연산자(`::`)**로 명시해야 함
+
+```cpp
+std::cout << "Hello, World!" << std::endl;
+```
+
+---
+
+## **배열 입력받기**
+
+### **기본 문자열 입력**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(void) {
+    char arr[10];
+    cout << "문자 입력";
+    cin >> arr; // 공백 전까지 입력
+    cout << "내용 : " << arr;
+
+    return 0;
+}
+```
+
+- C언어와 달리 서식문자 (`%s`, `%c`) 고려할 필요 없음
+- **`cin`과 `cout`으로 간단히 문자열 입력/출력 가능**
+
+### **공백 포함 입력 (`getline` 함수 사용)**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main(void) {
+    char arr[10];
+    cout << "문자 입력";
+    cin.getline(arr, 10); // 최대 10문자 입력
+    cout << "내용 : " << arr;
+
+    return 0;
+}
+```
+
+### **`getline`의 옵션**
+
+- 두 번째 인자: 최대 입력 가능 문자 수
+- 세 번째 인자(선택): 종결 문자(default는 `\n`)
+
+```cpp
+cin.getline(arr, 10, ' '); // 공백(' ')에서 입력 종료
+```
+
+---
+
+## **동적 할당**
+
+### **기본 동적 할당**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* p = new int(0); // 동적 메모리 할당, 초기값 0
+    if (p == NULL) {
+        cout << "메모리 할당 실패" << endl;
+        exit(1);
+    }
+    *p = 100;
+    cout << *p << endl;
+
+    delete p; // 메모리 해제
+    p = NULL; // 포인터 초기화
+}
+```
+
+### **동적 메모리 관리**
+
+- **할당**: `new` 키워드 사용
+- **해제**: `delete` 키워드 사용
+- 해제 후 **NULL 초기화**는 권장사항
+
+---
+
+### **배열 동적 할당**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int* arr = new int[10]; // 크기 10의 배열 동적 할당
+    if (arr == NULL) {
+        cout << "메모리 할당 실패" << endl;
+        exit(1);
+    }
+    arr[0] = 10;
+    cout << arr[0] << endl;
+
+    delete[] arr; // 배열 메모리 해제
+    arr = NULL;
+}
+```
+
+### **주의점**
+
+- 배열 할당 후 **`delete[]`로 해제**
+- 포인터 초기화는 반드시 해주는 것이 좋음
+
+---
+
+## **포인트**
+
+1. **네임스페이스**
+    - `std`는 C++ 표준 라이브러리의 네임스페이스
+    - `using namespace std` 선언 여부에 따라 코드 작성 방식 달라짐
+2. **문자열 입력**
+    - `cin`은 공백 전까지 입력
+    - 공백 포함 입력은 `getline` 함수 사용
+3. **동적 할당**
+    - *`new`와 `delete`*로 메모리 관리
+    - 배열 할당 시 **`delete[]`*로 해제 필요
+4. **C와의 차이**
+    - 서식문자(`%d`, `%s`)를 고려하지 않음
+    - 문자열 입출력이 더 직관적임
