@@ -1,0 +1,14 @@
+> **`npx create-next-app@latest`**
+> 
+
+명령어를 입력하면 
+
+![image.png](attachment:c24535da-5f5d-4812-9434-764588f2a928:image.png)
+
+이렇게 옵션을 선택할 수 있는 문구가 나타난다.
+
+여기서 프로젝트에 맞게 설정을 해주면
+
+![image.png](attachment:f7ddc744-bc25-4f5e-93b6-16022a52fd94:image.png)
+
+프로젝트 생성 완료
