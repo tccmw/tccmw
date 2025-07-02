@@ -1,0 +1,57 @@
+## ✅ Next.js란?
+
+> React 기반의 풀스택 웹 애플리케이션 프레임워크
+> 
+- UI는 **React**로 구성
+- **페이지 라우팅, SSR, SSG, 이미지 최적화** 등 다양한 기능 내장
+- **컴파일, 번들링 등 빌드 과정**을 자동화
+- React보다 더 **강력하고 편리한 개발 경험** 제공
+
+---
+
+## 🔧 Next.js의 주요 기능
+
+### 1. 페이지 기반 라우팅
+
+- `pages/` 디렉토리 구조만으로 라우팅 자동 처리
+- 복잡한 설정 없이 URL과 컴포넌트를 연결
+
+### 2. 성능 최적화 (Built-in Optimization)
+
+- 자동 코드 스플리팅
+- 이미지 최적화(`next/image`)
+- 빠른 페이지 전환
+
+### 3. 다양한 렌더링 방식 지원
+
+- **CSR (Client Side Rendering)**
+- **SSR (Server Side Rendering)**
+- **SSG (Static Site Generation)**
+- **ISR (Incremental Static Regeneration)**
+
+### 4. 동적 HTML 스트리밍
+
+- 서버에서 HTML을 스트리밍 방식으로 전송
+- Time to First Byte(초기 응답 시간) 개선
+
+---
+
+## 🚨 왜 Next.js가 필요한가?
+
+### React의 한계 (CSR 기반 SPA)
+
+| 문제 | 설명 |
+| --- | --- |
+| ⏳ 느린 초기 로딩 | JS 로딩 후에야 콘텐츠 렌더링 가능 |
+| 🕳️ SEO 최적화 어려움 | 초기엔 빈 HTML만 전달됨 |
+| 💸 비즈니스 손해 | 검색 노출, 유저 이탈 등으로 손실 발생 |
+
+👉 **이런 한계를 극복하기 위해 SSR을 지원하는 `Next.js`가 등장**
+
+---
+
+## 🧠 요약
+
+- React 기반 앱에서 SEO, 성능을 고민한다면 **Next.js는 사실상 정답**
+- **CSR+SSR+SSG+ISR** 모두 가능한 유연한 구조
+- 설정 없이 빠르게 라우팅/렌더링/최적화가 가능함
