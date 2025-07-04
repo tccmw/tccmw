@@ -1,0 +1,312 @@
+## 🚀 Next.js 폴더 구조와 활용 전략
+
+**Next.js는 현대적인 웹 애플리케이션 개발을 위한 강력한 도구이다.**
+
+특히 프로젝트가 커지고 협업이 많아질수록 폴더 구조의 중요성이 부각된다.
+
+Next.js에서 효과적인 폴더 구조를 사용하면 유지보수성과 확장성이 크게 향상된다.
+
+---
+
+## 📂 Next.js 폴더 구조의 중요성
+
+### 🔧 유지보수성
+
+- 프로젝트가 커질수록 **코드의 양과 복잡도가 증가**
+- **체계적인 폴더 구조**는 코드 탐색과 수정 작업을 수월하게 만든다
+- 모든 파일이 적절히 분류되어 있으면 **디버깅과 리팩토링** 과정에서도 효율성이 높아진다
+
+### 👥 팀 협업
+
+- **일관된 폴더 구조**는 팀원 간 코드 공유와 작업 분배를 원활하게 한다
+- 새로운 팀원이 합류해도 **구조가 명확**하면 적응 속도가 빨라진다
+
+### 🔄 재사용성과 확장성
+
+- 공통으로 사용되는 **컴포넌트와 유틸리티를 별도로 분리**하면 코드 재사용성이 높아진다
+- 기능별로 코드를 분리하면 새로운 기능 추가 시 **충돌을 최소화**할 수 있다
+
+---
+
+## 🪄 Next.js App Router와 라우트 구조
+
+Next.js 13 이상 버전에서는 **App Router**를 도입하여 파일 및 폴더 이름만으로 라우팅을 설정할 수 있다.
+
+이 새로운 방식은 개발자의 생산성을 크게 향상시키며, 코드베이스를 더 깔끔하게 유지할 수 있다.
+
+### 기본 라우트 구조
+
+- `page.tsx` 파일이 있는 폴더는 해당 경로의 라우트로 자동 매핑된다
+- API 라우트는 `route.ts` 파일을 사용하여 정의할 수 있다
+
+예시 디렉터리 구조
+
+```
+app/
+├─ home/
+│  ├─ page.tsx         # /home
+│  ├─ homeBanner.tsx   # not-routable
+├─ about/
+│  ├─ page.tsx         # /about
+├─ api/
+│  ├─ hello/
+│  │  └─ route.ts      # /api/hello (API 라우트)
+│  │  └─ GET.ts        # not-routable
+```
+
+---
+
+### 🔒 비공개 폴더 - Private Folders
+
+언더스코어(_)로 시작하는 폴더는 라우팅 시스템에서 제외된다.
+
+```
+app/
+├─ _components/   # 라우팅되지 않음
+└─ _settings/     # 라우팅되지 않음
+```
+
+---
+
+### 📁 라우터 그룹 - Router Groups
+
+폴더 이름을 괄호로 감싸면 URL 경로에는 영향을 미치지 않고 파일 구조를 조직화할 수 있다.
+
+```
+// 어드민 분리
+app/
+├─ (admin)/
+│  ├─ dashboard/
+│  │  ├─ page.tsx  # /dashboard 로 매핑
+
+// 데스크탑 모바일 분리
+app/
+├─ (desktop)/
+│  ├─ dashboard/
+│  │  ├─ page.tsx  # /dashboard 로 매핑
+├─ m/
+│  ├─ dashboard/
+│  │  ├─ page.tsx  # /dashboard 로 매핑
+```
+
+---
+
+### 🛟 Safe Colocation by Default
+
+`page.tsx` 또는 `route.ts`가 없는 폴더는 라우팅되지 않으므로 그 안에 다른 파일을 안전하게 배치할 수 있다.
+
+---
+
+### ✨ src 디렉터리와 모듈 경로 별칭
+
+- `src` 디렉터리를 활용하면 루트 디렉터리를 정리할 수 있다
+- `tsconfig.json`에서 경로 별칭(`@/`)을 설정하여 import 경로를 단축할 수 있다
+
+경로 별칭 예시
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/utils/*": ["utils/*"]
+    }
+  }
+}
+```
+
+사용 예시
+
+```tsx
+// 별칭 미사용 시
+import Button from '../../../components/common/Button';
+
+// 별칭 사용 시
+import Button from '@/components/common/Button'
+```
+
+✅ 가독성과 유지보수성 향상
+
+✅ 중첩 디렉터리 문제 해결
+
+---
+
+## 📐 폴더 구조 전략
+
+---
+
+### 🪞 단순하고 평평한 구조
+
+- Page.tsx를 제외한 모든 컴포넌트가 `components/` 폴더에 모여있다
+
+```
+my-app/
+├─ app/
+│  ├─ home/
+│  │  ├─ page.tsx
+│  ├─ about/
+│  │  ├─ page.tsx
+├─ components/
+│  ├─ Button.tsx
+│  ├─ Header.tsx
+│  ├─ Footer.tsx
+```
+
+✅ 구조가 단순하고 설정이 빠름
+
+🚨 컴포넌트 수가 많아질 경우 관리가 어려움
+
+---
+
+### 🧭 목적 기반 구조
+
+- 공통 컴포넌트, 레이아웃, UI 등을 기능적으로 분류
+
+```
+my-app/
+├─ app/
+│  ├─ home/
+│  │  ├─ page.tsx
+│  ├─ about/
+│  │  ├─ page.tsx
+├─ components/
+│  ├─ common/
+│  ├─ layout/
+│  ├─ forms/
+│  ├─ ui/
+```
+
+✅ 파일 검색과 관리가 용이
+
+🚨 명확히 구분하기 애매한 컴포넌트가 생길 수 있음
+
+---
+
+### 🗂️ 기능/도메인 기반 구조
+
+- 특정 기능이나 도메인별로 코드를 그룹화
+
+```
+my-app/
+├─ app/
+│  ├─ user/
+│  │  ├─ page.tsx
+│  ├─ product/
+│  │  ├─ page.tsx
+├─ components/
+│  ├─ user/
+│  ├─ product/
+│  ├─ blog/
+```
+
+✅ 한 기능에 관련된 모든 코드를 한 곳에서 관리
+
+🚨 공통 로직 중복 가능성
+
+---
+
+### ⚛️ Atomic Design 기반 구조
+
+- UI를 원자부터 유기체까지 단계적으로 조합
+
+```
+my-app/
+├─ components/
+│  ├─ atoms/
+│  ├─ molecules/
+│  ├─ organisms
+```
+
+✅ 재사용성과 일관성 극대화
+
+🚨 Atomic Design 개념을 이해해야 함
+
+---
+
+### 🗃️ _component 폴더 패턴
+
+- 페이지에서만 사용하는 컴포넌트를 `_component` 폴더에 배치
+
+```
+app/
+├─ home/
+│  ├─ page.tsx
+│  ├─ _component/
+│  │  ├─ HomeBanner.tsx
+│  │  ├─ HomeCTA.tsx
+```
+
+---
+
+## 📜 권장 사항
+
+---
+
+### 📋 일관성 유지
+
+- 팀 내 폴더와 파일명 규칙을 문서화하여 공유
+
+### 📦 index 파일 활용
+
+- 폴더 내 `index.ts` 파일을 사용하여 하위 컴포넌트 일괄 export
+
+```tsx
+// common/index.ts
+export { default as Button } from './Button';
+export { default as Icon } from './Icon';
+```
+
+사용 예시
+
+```tsx
+// 기존 방식
+import Button from '@/components/common/Button';
+import Icon from '@/components/common/Icon';
+
+// index 파일 사용 시
+import { Button, Icon } from '@/components/common';
+```
+
+---
+
+## 📐 위 내용을 실제로 적용시킨다면?
+
+```
+my-app/
+├─ app/
+│  ├─ api/
+│  │  ├─ hello/
+│  │  │  └─ route.ts
+│  ├─ page.tsx
+│  ├─ (admin)/
+│  │  ├─ dashboard/
+│  │  │  ├─ page.tsx
+│  │  ├─ settings/
+│  │  │  ├─ page.tsx
+│  ├─ auth/
+│  │  ├─ login/
+│  │  │  ├─ page.tsx
+│  │  ├─ signup/
+│  │  │  ├─ page.tsx
+│  ├─ user/
+│  │  ├─ page.tsx
+│  │  ├─ _component/
+│  │  │  ├─ UserProfile.tsx
+│  │  │  ├─ ActivityChart.tsx
+├─ _components/
+│  ├─ common/
+│  ├─ layout/
+│  ├─ ui/
+│  ├─ forms/
+├─ queries/
+├─ lib/
+├─ hooks/
+├─ store/
+├─ utils/
+├─ styles/
+├─ public/
+├─ package.json
+├─ tsconfig.json
+└─ .env.local
+```
