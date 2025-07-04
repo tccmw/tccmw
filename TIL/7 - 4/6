@@ -1,0 +1,252 @@
+## 🎨 Next.js에서 웹사이트 레이아웃을 만드는 법
+
+- Next.js는 React에 얹혀사는 프레임워크
+- 따라서 React 문법을 이용한 HTML, 즉 JSX로 작성해야 한다
+
+---
+
+## 🔗 Routing
+
+- Next.js는 자동 라우팅을 지원함
+- 파일, 폴더를 생성하면 자동으로 페이지가 생성됨
+- 폴더명과 동일한 URL이 자동 생성됨
+
+예)
+
+- `app/list` 폴더를 생성하면 `/list` 주소의 페이지가 생성됨
+- `app/list/page.js` 파일을 생성 → 이때 파일명은 무조건 `page.js`
+- `/list`로 접속 시 `page.js`의 내용을 보여준다
+
+---
+
+## 🔄 map() 함수
+
+- 배열의 각 요소를 순회해서 처리
+- 새로운 배열을 반환하는 함수
+- HTML의 반복 생성을 가능하게 한다
+- React에서 반복문 사용 시, `key` 속성 사용을 권장
+
+```jsx
+arr.map((배열의 요소, 인덱스) => {
+  // 작업
+});
+```
+
+---
+
+## 🖼️ 이미지 넣기
+
+### 최적화된 이미지 사이즈로 넣는 법
+
+1. lazy loading
+2. 사이즈 최적화
+3. layout shift 방지
+    
+    (layout shift: 이미지 때문에 레이아웃이 밀려나는 현상)
+    
+
+```bash
+import Image from 'next/image';
+```
+
+위 구문을 import하면
+
+`<img>` 태그 대신 `<Image>` 태그를 사용할 수 있다.
+
+`<Image>` 태그를 사용하면 Next.js가 자동으로 이미지를 최적화해준다.
+
+🚨 이미지를 반드시 import 해야 한다
+
+---
+
+### 📄 Map 함수와 이미지 넣기 예제
+
+```jsx
+mport Image from 'next/image'; // Image 사용
+import tomato from '/public/tomato.jpg'; // 이미지 import
+
+export default function List() {
+  let 상품 = ['Tomato', 'Pasta', 'Coconut', 'Carrot'];
+
+  return (
+    <><div>
+        <h4 className="title">상품목록</h4>
+        {상품.map((a, index) => {
+          return (
+            <div className="food" key={index}>
+              <Image src={tomato} alt="토마토" className="food-img" />
+              <h4>{a} $40</h4>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+}
+```
+
+---
+
+## 🧩 Component
+
+### 1️⃣ 개념
+
+- 지저분한 HTML 코드를 분리하여 관리할 수 있다
+- 재사용이 잦은 HTML 코드를 주로 컴포넌트로 만든다
+
+**장점**
+
+- 코드 재사용 가능
+- props를 사용해 데이터 전달 가능
+
+**단점**
+
+- 컴포넌트 간 데이터 공유가 귀찮고 복잡해질 수 있다
+
+---
+
+### 🔨 컴포넌트 만드는 법
+
+1. 함수를 만든다
+2. HTML 코드를 `return` 안에 넣는다
+3. `<Component/>`로 컴포넌트를 불러온다
+
+---
+
+### 📄 컴포넌트 예제
+
+```jsx
+export default function Cart() {
+  return (
+    <div>
+      <h4 className="title">Cart</h4>
+      <div className="cart-item">
+        <p>상품명</p>
+        <p>$40</p>
+        <p>1개</p>
+      </div>
+      <CartItem />
+      <CartItem />
+      <CartItem />
+    </div>
+  );
+}
+
+// 컴포넌트 분리
+function CartItem() {
+  return (
+    <><div className="cart-item">
+        <p>상품명</p>
+        <p>$40</p>
+        <p>1개</p>
+      </div>
+    </>
+  );
+}
+```
+
+---
+
+### 2️⃣ Component의 종류
+
+Next.js 컴포넌트는 **Server Component**와 **Client Component** 두 가지가 있다.
+
+---
+
+### 🖥️ Server Component
+
+- 일반적으로 만든 컴포넌트는 모두 Server Component이다
+- 서버에서 실행되고 렌더링되는 컴포넌트
+- SSR(서버 사이드 렌더링)을 구현할 때 사용
+
+**특징**
+
+1. `onClick`과 같은 JS 기능 불가
+2. `useState`, `useEffect` 사용 불가 → HTML을 동적으로 바꿀 수 없다
+3. 로딩 속도가 빠르고, SEO(검색엔진 노출)에 유리하다
+
+---
+
+### 🌐 Client Component
+
+- 브라우저(클라이언트)에서 실행되고 렌더링되는 컴포넌트
+- React, Vue.js와 같은 프론트엔드 라이브러리/프레임워크에서 CSR(클라이언트 사이드 렌더링) 구현 시 사용
+
+**특징**
+
+1. `onClick`과 같은 동적 기능 사용 가능
+2. JS가 많이 필요해 로딩 속도가 느리다
+3. hydration이 필요해 로딩 속도가 느리다
+
+---
+
+### ✅ 정리
+
+- 보통 **큰 페이지** → Server Component
+- JS의 기능적인 부분이 필요한 곳 → Client Component로 분리하여 `<ClientComponent/>`로 불러와서 사용
+
+---
+
+### 🔗 3️⃣ 데이터(변수, 함수 등)를 파일로 분리하기
+
+코드가 복잡하고 더러워지면, **데이터들을 따로 파일로 분리**해서 관리하면 좋다.
+
+또한 함수, 컴포넌트, 클래스도 `export` & `import` 해서 사용할 수 있다.
+
+---
+
+### 📄 `export default`
+
+- 파일마다 **한 번만** 사용할 수 있다.
+- `import` 시 이름을 임의로 지정해서 불러올 수 있다.
+
+---
+
+### 📄 여러 변수를 동시에 `export`
+
+- 여러 개의 변수를 내보낼 때는 **중괄호**를 사용한다.
+- `import`할 때도 반드시 동일한 이름으로 불러와야 한다.
+
+```jsx
+// 여러 변수 내보내기
+export { age, name };
+
+// 가져오기
+import { age, name } from './data.js';
+```
+
+✅ 이때 `import { 변수명 }`의 **변수명은 반드시 동일해야 한다.**
+
+---
+
+### 예제
+
+### 📂 `data.js`
+
+```jsx
+// 데이터(변수, 함수 등)를 저장
+let age = 20;
+
+export default age;
+```
+
+---
+
+### 📂 `page.js`
+
+`import`로 불러오고, `age` 변수를 `num`으로 작명하여 `{num}`으로 사용한 예제
+
+```jsx
+import num from './data.js';
+
+export default function Cart() {
+  return (
+    <div>
+      <h4 className="title">Cart</h4>
+      <div className="cart-item">
+        <p>상품명 {num}</p>
+      </div>
+    </div>
+  );
+}
+```
