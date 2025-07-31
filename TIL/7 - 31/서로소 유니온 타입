@@ -1,0 +1,62 @@
+## 🧩 서로소 유니온 타입 (Discriminated / Tagged Union)
+
+### ✅ 정의
+
+**서로소 유니온 타입**은 **교집합이 없는 타입들**을 **하나의 유니온 타입**으로 구성한 타입 구조를 말한다.
+
+이때 **각 타입을 구분해주는 고유한 리터럴 필드(tag)**를 사용하여 타입을 구별할 수 있다.
+
+> 예시: type A = { type: 'A' }, type B = { type: 'B' } → type AB = A | B
+> 
+
+---
+
+### 🧠 원리
+
+- *서로소(disjoint)**란 **교집합이 없는 집합**을 의미한다.
+- 따라서 `string`과 `number`처럼 **절대 겹치지 않는 타입**들로 유니온을 구성한다.
+- 이를 위해 각 타입에 **고유한 식별자(`tag`, `state`, `type` 등)**를 부여한다.
+
+```tsx
+type Loading = { state: 'loading' }
+type Success = { state: 'success'; data: string }
+type Error = { state: 'error'; message: string }
+
+type AsyncState = Loading | Success | Error
+```
+
+> 위 예시에서 state는 태그 필드, 각 타입은 서로소 타입!
+> 
+
+---
+
+### 🛠️ 언제 사용하나?
+
+### 1. **회원 관리 기능 등 상태 구분이 명확한 구조**
+
+```tsx
+type Admin = { role: 'admin'; permissions: string[] }
+type User = { role: 'user'; name: string }
+type Guest = { role: 'guest' }
+
+type Member = Admin | User | Guest
+```
+
+### 2. **비동기 작업 결과 처리**
+
+```tsx
+type Result<T> =
+  | { status: 'success'; data: T }
+  | { status: 'error'; error: string }
+  | { status: 'loading' }
+```
+
+→ 각 상태가 **절대 겹치지 않기 때문에**, `status`를 기준으로 안전하게 분기 가능!
+
+---
+
+### 🔍 장점
+
+- 타입 **안정성** 향상
+- **switch문, if문**에서 타입 좁히기(Type Narrowing)가 자연스럽게 이루어짐
+- 유지보수가 쉬움
