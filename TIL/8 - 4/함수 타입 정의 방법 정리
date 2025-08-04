@@ -1,0 +1,92 @@
+### ✅ 함수란?
+
+> **매개변수(Parameter)**를 받아 연산을 수행하고, **결과값(Return Value)**을 반환하는 코드 블록
+> 
+
+---
+
+### 📌 타입스크립트에서 함수 정의 방식
+
+### 1. 함수 선언식
+
+```tsx
+function add(a: number, b: number): number {
+  return a + b
+}
+```
+
+### 2. 화살표 함수
+
+```tsx
+const add = (a: number, b: number): number => a + b
+```
+
+> : number는 반환값 타입을 나타냄
+> 
+
+---
+
+### 🧩 함수 타입 정의 순서
+
+**1. 매개변수 타입 정의**
+
+**2. 반환값 타입 정의**
+
+```tsx
+const greet = (name: string): string => {
+  return `Hello, ${name}`
+}
+```
+
+---
+
+### ⚙️ 매개변수 타입 고급 기능
+
+### ✅ 기본값 매개변수 (Default Parameter)
+
+```tsx
+function intro(name: string = "정명우") {
+  console.log(`name: ${name}`)
+}
+```
+
+### ✅ 선택적 매개변수 (Optional Parameter)
+
+```tsx
+function intro(name: string = "정명우", tall?: number) {
+  console.log(`name: ${name}`)
+}
+```
+
+> 선택적 매개변수는 항상 뒤에 위치해야 함!
+> 
+> 
+> ❌ `function intro(tall?: number, name: string)` → 오류 발생
+> 
+
+---
+
+### 🔁 레스트 파라미터 (Rest Parameter)
+
+- **가변적인 인자**를 받을 때 사용
+- 전달받은 인자들을 **배열로 저장**
+
+```tsx
+function getSum(...rest: number[]) {
+  let sum = 0
+  rest.forEach((it) => (sum += it))
+  return sum
+}
+
+getSum(1, 2, 3) // 6
+```
+
+---
+
+### 🎯 설명할 땐 이렇게!
+
+> 이 함수는 number 타입의 두 개 인자를 받아 number 타입의 결과를 반환한다.
+> 
+> 
+> 또는 이 함수는 `string` 또는 `undefined` 값을 선택적으로 받는다.
+>
