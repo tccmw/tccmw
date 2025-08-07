@@ -1,0 +1,55 @@
+## 🧩 선언 합침 (Declaration Merging)
+
+---
+
+### 📌 개념
+
+- **같은 이름의 인터페이스**를 **여러 번 선언해도 오류가 나지 않음**
+- **동일한 이름**이면 **자동으로 합쳐짐**
+
+---
+
+### ✅ 예시
+
+```tsx
+interface Person {
+  name: string;
+}
+
+interface Person {
+  ago: number;
+}
+
+const person: Person = {
+  name: "",
+  ago: 1,
+};
+```
+
+- 두 개의 `Person` 인터페이스가 **자동으로 하나로 병합됨**
+- 선언한 속성들이 **모두 포함된** 하나의 인터페이스처럼 동작함
+
+---
+
+### ⚠️ 충돌은 안 됨
+
+```tsx
+interface Person {
+  name: string;
+}
+
+interface Person {
+  name: number; // ❌ 에러 발생
+  ago: number;
+}
+```
+
+- **같은 속성 이름**인데 **타입이 다르면 에러**
+- 심지어 **서브 타입**이어도 안 됨
+
+---
+
+### 💡 사용되는 경우
+
+- 보통 **라이브러리의 타입이 부실할 때 보강용으로 사용함**
+- 즉, **모듈 보강(Module Augmentation)** 할 때 주로 활용됨
