@@ -1,0 +1,66 @@
+## 📦 클래스(Class)
+
+형식이 똑같은 객체가 여러 개 필요할 때 유용하다.
+
+마치 **공장에서 찍어내는 제품의 틀** 같은 개념.
+
+---
+
+### 기본 구조
+
+```tsx
+class Student {
+  // 필드
+  name;
+  grade;
+  age;
+
+  // 생성자
+  constructor(name, grade, age) {
+    this.name = name;
+    this.grade = grade;
+    this.age = age;
+  }
+
+  // 메서드
+  study() {
+    console.log("공부 중...");
+  }
+}
+```
+
+---
+
+### 사용 예시
+
+```tsx
+let studentA = new Student("정명우", "A+", 18);
+```
+
+- `new` → 생성자를 호출해 객체 생성
+- `constructor` → 생성자 함수로 인식됨
+- 클래스를 이용해 만든 객체 → **인스턴스**
+- 클래스 안에서는 **쉼표 없음**
+- 클래스명은 **첫 글자 대문자**(카멜 표기법)
+
+---
+
+## 🧬 상속 (Inheritance)
+
+클래스에서도 상속 가능.
+
+```tsx
+class StudentDeveloper extends Student {
+  // 필드
+  favoriteSkill;
+
+  // 생성자
+  constructor(name, grade, age, favoriteSkill) {
+    super(name, grade, age); // 부모 클래스 생성자 호출
+    this.favoriteSkill = favoriteSkill;
+  }
+}
+```
+
+- `super()` → **부모 클래스의 생성자 호출**
+- 생성자 매개변수는 그대로 받고 `super`로 전달
