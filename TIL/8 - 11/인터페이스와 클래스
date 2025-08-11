@@ -1,0 +1,27 @@
+## 인터페이스와 클래스
+
+### 사용법
+
+```tsx
+interface Interface {
+  naem: string;
+  moveSpeed: number;
+  move(): void;
+}
+
+class Character implements Interface {
+  // 필드
+
+  // 생성자
+
+  // 메서드
+}
+```
+
+### 설명
+
+- 클래스가 인터페이스를 **구현**한다는 뜻
+- 인터페이스는 클래스의 **설계도 역할**
+- 인터페이스로 정의된 속성·메서드는 전부 **public**
+- 라이브러리 구현, 정교한 프로그래밍 시 주로 사용
+- 평소에는 잘 사용하지 않음
