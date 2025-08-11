@@ -1,0 +1,42 @@
+## 접근 제어자
+
+> TypeScript의 클래스에서만 사용 가능
+> 
+> 
+> 클래스 필드나 메서드에 대해 접근 가능 범위를 지정
+> 
+
+### 종류
+
+1. **public** *(기본값)*
+    - 자유롭게 접근 가능
+    - 아무 제약이 없음
+    - 명시하지 않으면 자동으로 public
+2. **private**
+    - 클래스 외부에서 접근 불가
+    - 예: `클래스명.name = "정명우";` → ❌
+    - 클래스 내부 메서드에서는 접근 가능
+    - **상속받은 클래스에서도 접근 불가**
+3. **protected**
+    - `private`와 비슷하지만,
+    - 상속받은 클래스에서는 접근 가능
+
+---
+
+### 생성자 매개변수에 접근 제어자 사용하기
+
+- 생성자 매개변수에 접근 제어자를 붙이면:
+    1. **필드를 자동 생성**
+    2. **필드 값 자동 할당**
+- 따라서 `this.name = name;` 같은 코드가 필요 없음
+
+```tsx
+class Student {
+    constructor(private name: string, public age: number) {}
+}
+
+const student = new Student("정명우", 18);
+// student.name → ❌ private이므로 외부 접근 불가
+// student.age → ⭕ public이므로 외부 접근 가능
+
+```
