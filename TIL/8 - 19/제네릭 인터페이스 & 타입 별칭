@@ -1,0 +1,67 @@
+## 제네릭 인터페이스 & 타입 별칭
+
+### 특징
+
+- 제네릭 인터페이스는 **반드시 타입 변수에 타입을 할당해야 함**
+- 타입 변수 = 타입 파라미터 = 제네릭 타입 변수 = 제네릭 타입 파라미터
+- 하나의 인수로 여러 가지 타입 표현 가능
+- 하나의 타입으로 여러 타입에 **유연하게 사용 가능**
+
+---
+
+### 제네릭 인터페이스 예시
+
+```tsx
+interface KeyPair<K, V> {
+  key: K;
+  value: V;
+}
+
+let keyPair: KeyPair<string, number> = {
+  key: "Key",
+  value: 0
+};
+
+```
+
+---
+
+### 활용 예시
+
+```tsx
+interface Map<V> {
+  [key: string]: V;
+}
+
+let stringMap: Map<string> = {
+  key: "1",
+};
+
+let numberMap: Map<number> = {
+  key: 1,
+};
+
+```
+
+---
+
+### 제네릭 타입 별칭
+
+- 문법만 다를 뿐, **제네릭 인터페이스와 동일한 기능**
+
+```tsx
+type Map<V> = {
+  [key: string]: V;
+}
+
+let stringMap: Map<string> = {
+  key: "1",
+};
+
+```
+
+---
+
+### 언제 사용할까?
+
+- **유저 관리 프로그램** 같은 상황에서 여러 타입의 데이터를 다룰 때 유용
