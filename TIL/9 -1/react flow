@@ -1,0 +1,211 @@
+> [react flow 공식](https://reactflow.dev/)
+> 
+
+## 구성요소
+
+- **노드 - node**
+    - 데이터나 작업 단위를 시각적으로 표현하는 블록 같은 요소
+    - 기본 단위, 여러 타입으로 커마 가능
+- **포트 - port**
+    - 노드에 연결선을 붙일 수 있는 지점
+- **엣지 - Edge**
+    - 두 노드 사이를 연결하는 관계 그 자체
+    - 두 노드 연결하는 선
+    - 데이터 흐름이 이동하는 경로를 의미
+- **뷰포트**
+    - 사용자가 현재 보고있는 화면 카메라 위치
+    - 캔버스 전체 중 현재 어느 부분을 보여줄지 결정
+    - `{ x: number, y: number, zoom: number }` 형태.
+
+---
+
+## 사용법
+
+### flow 생성
+
+1. react flow가 작동하는데 필요한 패키지 불러오기
+    
+    ```tsx
+    import { ReactFlow, Background, Controls } from '@xyflow/react';
+    import '@xyflow/react/dist/style.css';
+    ```
+    
+2. react flow 랜더링
+    
+    ```tsx
+    export default function App() {
+      return (
+        <div style={{ height: '100%', width: '100%' }}>
+          <ReactFlow>
+            <Background />
+            <Controls />
+          </ReactFlow>
+        </div>
+      );
+    }
+    ```
+    
+    - 플로우를 랜더링하는 react 컴포넌트 생성
+    - `Background` → 캔버스에 격자 무늬 표시
+    - `Controls` → 오른쪽 하단에 줌인/줌아웃/위치 리셋 버튼 표시
+
+---
+
+### 노드 생성
+
+1. 노드 객체 생성
+    
+    ```tsx
+    const initialNodes = [
+      {
+        id: 'n1',
+        position: { x: 0, y: 0 },
+        data: { label: 'Node 1' },
+        type: 'input',
+      },
+      {
+        id: 'n2',
+        position: { x: 100, y: 100 },
+        data: { label: 'Node 2' },
+      },
+    ];
+    ```
+    
+    - React 컴포넌트 외부에 노드 객체 배열 생성
+    - 고유한 id와 position, data가 필요함
+2. flow에 노드 추가
+    
+    ```tsx
+    <ReactFlow nodes={initialNodes}>
+      <Background />
+      <Controls />
+    </ReactFlow>
+    ```
+    
+    - props를 사용
+
+---
+
+### 엣지 추가
+
+1. 엣지 생성
+    - 엣지 객체 배열 정의
+    - id, source(시작 위치), target(끝나는 위치)가 있어야함
+    
+    ```tsx
+    const initialEdges = [
+      {
+        id: 'n1-n2',
+        source: 'n1',
+        target: 'n2',
+      },
+    ];
+    ```
+    
+2. 라벨 붙이기
+    
+    ```tsx
+    const initialEdges = [
+      {
+        id: 'n1-n2',
+        source: 'n1',
+        target: 'n2',
+        type: 'step',
+        label: 'connects with',
+      },
+    ];
+    ```
+    
+
+---
+
+## 이벤트 야미
+
+### 노드 변경 이벤트
+
+1. 상태 초기화
+    
+    ```tsx
+    export default function App() {
+      const [nodes, setNodes] = useState(initialNodes);
+      const [edges, setEdges] = useState(initialEdges);
+     
+      return (
+        <div style={{ height: '100%', width: '100%' }}>
+          <ReactFlow>
+            <Background />
+            <Controls />
+          </ReactFlow>
+        </div>
+      );
+    }
+    ```
+    
+2. 이벤트 핸들러 추가
+    - node 관련 이벤트 핸들러와 edge 관련 이벤트 핸들러 생성
+    - 요소를 드래그하거나 삭제하는 등의 변경 사항이 발생할 때 상태 업데이트에 사용
+    
+    ```tsx
+    const onNodesChange = useCallback(
+      (changes) => setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
+      [],
+    );
+    const onEdgesChange = useCallback(
+      (changes) => setEdges((edgesSnapshot) => applyEdgeChanges(changes, edgesSnapshot)),
+      [],
+    );
+    ```
+    
+3. react flow에 전달
+    - 이벤트 핸들러를 react flow에 전달
+    
+    ```tsx
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      fitView
+    >
+      <Background />
+      <Controls />
+    </ReactFlow>
+    ```
+    
+4. 결과
+    - 노드를 드래그하고 삭제 가능함
+
+---
+
+### 연결 이벤트
+
+1. 이벤트 핸들러 생성
+    - 새 edge를 생성하고 배열을 업데이트
+    - 새로운 연결이 생성될 때마다 호출
+    
+    ```tsx
+    const onConnect = useCallback(
+      (params) => setEdges((edgesSnapshot) => addEdge(params, edgesSnapshot)),
+      [],
+    );
+    ```
+    
+2. react flow에 연결
+    - 이벤트 핸들러를 react flow에 전달
+    
+    ```tsx
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+      fitView
+    >
+      <Background />
+      <Controls />
+    </ReactFlow>
+    ```
+    
+3. 결과
+    - edge가 곡선이되며 최선의 경로로 연결됨
