@@ -1,0 +1,40 @@
+keyof 연산자
+개념
+
+객체의 프로퍼티 key들을 유니온 스트링 타입으로 추출
+
+keyof InterfaceName → 해당 인터페이스 안의 모든 key를 유니온 타입으로 반환
+
+숫자, 문자열 등 단순 타입으로 지정하면 오류 발생
+
+타입에서만 사용 가능
+
+typeof와도 함께 사용 가능
+
+사용 예시
+const person = {
+  name: "정명우",
+  age: 18,
+};
+
+// person의 타입: { name: string; age: number }
+type Person = typeof person;
+
+function a(person: Person, key: keyof typeof person) {
+  return person[key];
+}
+
+
+keyof typeof person → "name" | "age"
+
+따라서 key는 string | number가 아닌 "name" | "age" 유니온 타입
+
+타입 안전성을 유지하며 객체 속성 접근 가능
+
+핵심 포인트
+
+객체 프로퍼티를 타입 수준에서 안전하게 참조 가능
+
+keyof + typeof 조합으로 실제 객체의 키 타입 추출 가능
+
+실수로 없는 key에 접근하는 오류를 컴파일 단계에서 방지
